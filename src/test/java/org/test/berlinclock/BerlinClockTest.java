@@ -9,15 +9,15 @@ public class BerlinClockTest {
 	BerlinClock berlinClock = new BerlinClock();
 
 	@Test
-	public void testBerlinClockResult() {
-		String berlinTime = berlinClock.changeInputTimeToBerlinTime("16:37:16");
-		String expected = Arrays.toString(new String[] { "Y", "RRRO", "ROOO", "YYRYYRYOOOO", "YYOO" });
+	public void test_Berlin_Clock_Result() {
+		String berlinTime = berlinClock.changeInputTimeToBerlinTime("04:30:30");
+		String expected = Arrays.toString(new String[] { "Y", "OOOO", "RRRR", "YYRYYROOOOO", "OOOO" });
 		Assert.assertEquals(expected, berlinTime);
 
 	}
 
 	@Test
-	public void testYellowLampShouldBlinkOnOffInEveryTwoSeconds() {
+	public void test_Yellow_Lamp_Should_Blink_OnOffInEvery_TwoSeconds() {
 		Assert.assertEquals("Y", berlinClock.calculateSeconds(0));
 		Assert.assertEquals("O", berlinClock.calculateSeconds(1));
 		Assert.assertEquals("O", berlinClock.calculateSeconds(59));
@@ -29,7 +29,7 @@ public class BerlinClockTest {
 	}
 
 	@Test
-	public void testUpperRowHoursShouldLightRedLampForEvery5Hours() {
+	public void test_Upper_Row_Hours_Should_LightRedLamp_ForEvery5Hours() {
 		Assert.assertEquals("RRRR", berlinClock.calculateUpperRowHours(23));
 		Assert.assertEquals("RRRR", berlinClock.calculateUpperRowHours(24));
 		Assert.assertEquals("OOOO", berlinClock.calculateUpperRowHours(0));
